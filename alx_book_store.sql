@@ -36,4 +36,10 @@ CREATE TABLE IF NOT EXISTS Orders (
 
 -- Order_Details table
 CREATE TABLE IF NOT EXISTS Order_Details (
-    orderdetailid
+    orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    book_id INT NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
+);
